@@ -52,7 +52,9 @@ export default function Blog() {
             key={post.slug}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ scale: 1.05 }} // Scale-up effect on hover
+            whileTap={{ scale: 0.95 }}  // Scale-down effect on tap/click
+            transition={{ duration: 0.2, delay: index * 0.1 }}
           >
             <Card className="bg-card hover:bg-card/80 transition-colors h-full flex flex-col">
               <CardHeader>
