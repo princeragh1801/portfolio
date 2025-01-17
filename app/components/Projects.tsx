@@ -13,7 +13,7 @@ const projects = [
     title: "Employee Management System",
     description: "HRMS Web API built with ASP.NET Core and Entity Framework",
     technologies: ["C#", ".NET Core", "SQL Server", "JWT Auth"],
-    github: "#",
+    github: "https://github.com/princeragh1801/EmployeeManagementAPI",
     demo: "#"
   },
   {
@@ -21,7 +21,7 @@ const projects = [
     title: "Alumni E-Connect",
     description: "Full stack web application for alumni networking and event management",
     technologies: ["React", ".NET Core", "SQL Server", "Azure"],
-    github: "#",
+    github: "https://github.com/princeragh1801/Alumini",
     demo: "#"
   },
   {
