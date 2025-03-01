@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import ProjectCard from './ProjectCard'
 
 const projects = [
   {
@@ -21,7 +22,7 @@ const projects = [
     title: "Alumni E-Connect",
     description: "Full stack web application for alumni networking and event management",
     technologies: ["React", ".NET Core", "SQL Server", "Azure"],
-    github: "https://github.com/princeragh1801/Alumini",
+    github: "https://github.com/NidhiSharma-21/Alumni_Econnect_Major",
     demo: "#"
   },
   {
@@ -31,7 +32,46 @@ const projects = [
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
     github: "#",
     demo: "#"
+  },{
+    slug: "employee-management-system",
+    title: "Employee Management API",
+    description: "A backend service for managing employees with role-based authentication and authorization.",
+    technologies: ["C#", ".NET Core", "SQL Server", "Entity Framework Core"],
+    github: "https://github.com/princeragh1801/EmployeeManagementAPI", // Add your GitHub repo link if available
+    demo: "#",   // Add your demo link if available (e.g., API documentation or hosted backend)
   },
+{
+slug: "book-my-show",
+title: "Book My Show",
+description: "A backend service for a movie ticket booking system with JWT-based authentication.",
+technologies: ["Node.js", "Express", "MongoDB", "JWT"],
+github: "#", // Add your GitHub repo link if available
+demo: "#",   // Add your demo link if available (e.g., API documentation or hosted backend)
+},
+{
+slug: "dot",
+title: ".Dot",
+description: "A full-stack web application where users can publish their project details and explore projects shared by others.",
+technologies: ["React.js", "Node.js", "Express", "MongoDB"],
+github: "#", // Add your GitHub repo link if available
+demo: "#",   // Add your demo link if available
+},
+{
+slug: "chat-app",
+title: "Chat App",
+description: "A real-time chat application with WebSocket support using SignalR, allowing users to send and receive messages instantly.",
+technologies: ["React.js", "ASP.NET Core Web API", "SQL Server", "Entity Framework Core", "SignalR"],
+github: "#", // Add your GitHub repo link if available
+demo: "#",   // Add your demo link if available
+},
+{
+  slug: 'alumni-e-connect',
+  title: "Alumni E-Connect",
+  description: "Full stack web application for alumni networking and event management",
+  technologies: ["React", ".NET Core", "SQL Server", "Azure"],
+  github: "https://github.com/NidhiSharma-21/Alumni_Econnect_Major",
+  demo: "#"
+},
   // Add more projects here...
 ]
 
@@ -51,83 +91,7 @@ export default function Projects() {
       </motion.div>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.slice(0, visibleProjects).map((project, index) => (
-          <motion.div
-          key={project.slug}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          whileHover={{ scale: 1.05 }} // Scale-up effect on hover
-          whileTap={{ scale: 0.95 }}  // Scale-down effect on tap/click
-          transition={{ duration: 0.2, delay: index * 0.1 }}
-        >
-          <Card
-            className="bg-card hover:bg-card/80 transition-colors h-full flex flex-col"
-          >
-            <CardHeader>
-              <CardTitle className="text-primary">{project.title}</CardTitle>
-              <CardDescription>{project.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow flex flex-col justify-between">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.1, ease: "easeInOut", delay: 0.02 }}
-                className="space-y-4"
-              >
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <motion.span
-                      key={tech}
-                      className="inline-flex items-center rounded-md bg-secondary/10 px-2 py-1 text-xs font-medium text-secondary-foreground"
-                      whileHover={{
-                        scale: 1.1,
-                        backgroundColor: "rgba(0, 0, 0, 0.05)",
-                      }} // Slightly enlarges the tag on hover
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-                </div>
-                <div className="flex gap-4">
-                  <motion.div whileHover={{ scale: 1.1 }}>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      asChild
-                      className="border-primary group text-primary hover:bg-primary/10"
-                    >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4 transition-transform group-hover:-translate-y-1 " />
-                        Code
-                      </a>
-                    </Button>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.1 }}>
-                    <Button
-                      size="sm"
-                      asChild
-                      className="bg-primary text-primary-foreground hover:bg-primary/90"
-                    >
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Demo
-                      </a>
-                    </Button>
-                  </motion.div>
-                </div>
-              </motion.div>
-              <Button
-                variant="outline"
-                asChild
-                className="group w-full mt-4 border-primary text-primary hover:bg-primary/10"
-              >
-                <Link href={`/projects/${project.slug}`}>
-                  View Details
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-        </motion.div>
+          <ProjectCard project={project} index={index} />
         
         ))}
       </div>

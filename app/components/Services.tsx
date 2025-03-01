@@ -1,28 +1,34 @@
 'use client'
 import { Card, CardContent } from "@/components/ui/card"
+import { link } from "fs"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Services() {
   const services = [
     {
       title: "RESTful APIs",
       description: "Build secure and scalable APIs for web and mobile applications using asp.net core and nodejs.",
-      icon: "/restapi.svg"
+      icon: "/restapi.svg",
+      link:"projects/backend"
     },
     {
       title: "Windows Form Applications",
       description: "Develop powerful desktop applications with modern UI and functionality.",
-      icon: "/windows.png"
+      icon: "/windows.png",
+      link:"projects/backend"
     },
     {
       title: "Mobile App Development",
       description: "Create cross-platform mobile applications using React Native and .NET.",
-      icon: "/mobile-app-development.png"
+      icon: "/mobile-app-development.png",
+      link:"projects/frontend"
     },
     {
       title: "Full-Stack Web Apps",
       description: "Develop dynamic and responsive web applications with modern frameworks.",
-      icon: "/web-app-development.png"
+      icon: "/web-app-development.png",
+      link : "projects/backend"
     }
   ]
 
@@ -34,15 +40,15 @@ export default function Services() {
       </div>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {services.map((service) => (
-          <Card key={service.title} className="bg-card hover:bg-card/80 transition-colors">
-            <CardContent className="p-6 text-center">
-              <div className="flex justify-center mb-4">
-                <Image src={service.icon} alt={service.title} width={50} height={50} />
-              </div>
-              <h3 className="font-semibold text-lg text-primary">{service.title}</h3>
-              <p className="text-muted-foreground mt-2">{service.description}</p>
+          <Link href={service.link}>
+          <Card key={service.title} className="flex flex-col items-center p-6 bg-card rounded-lg">
+            <Image src={service.icon} width={64} height={64} alt={service.title} />
+            <CardContent className="text-center">
+              <h3 className="text-lg font-semibold">{service.title}</h3>
+              <p className="text-muted-foreground">{service.description}</p>
             </CardContent>
-          </Card>
+            </Card>
+            </Link>
         ))}
       </div>
     </section>

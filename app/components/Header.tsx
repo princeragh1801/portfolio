@@ -12,7 +12,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'skills', 'projects', 'blog', 'contact']
+      const sections = ['hero', 'about', 'skills', 'projects', 'contact']
       let current = ''
 
       for (const section of sections) {
@@ -42,7 +42,6 @@ export default function Header() {
             <NavLink href="#about" active={activeSection === 'about'}>About</NavLink>
             <NavLink href="#skills" active={activeSection === 'skills'}>Skills</NavLink>
             <NavLink href="#projects" active={activeSection === 'projects'}>Projects</NavLink>
-            <NavLink href="#blog" active={activeSection === 'blog'}>Blog</NavLink>
             <NavLink href="#contact" active={activeSection === 'contact'}>Contact</NavLink>
           </nav>
           <ModeToggle />
@@ -62,7 +61,6 @@ export default function Header() {
             <NavLink href="#about" active={activeSection === 'about'}>About</NavLink>
             <NavLink href="#skills" active={activeSection === 'skills'}>Skills</NavLink>
             <NavLink href="#projects" active={activeSection === 'projects'}>Projects</NavLink>
-            <NavLink href="#blog" active={activeSection === 'blog'}>Blog</NavLink>
             <NavLink href="#contact" active={activeSection === 'contact'}>Contact</NavLink>
           </nav>
         </div>
